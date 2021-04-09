@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.wkp.gestureengine"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // 引入基础SDK
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint:2.1.0.300'
+    // 引入手部关键点检测模型包
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.1.0.300'
+    // 引入手势识别模型包
+    implementation 'com.huawei.hms:ml-computer-vision-gesture-model:2.1.0.300'
+    // 6.0动态权限
+    implementation 'com.wkp:RuntimePermission:1.0.6'
+}
